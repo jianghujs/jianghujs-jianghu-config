@@ -30,7 +30,7 @@
     "dev": "egg-bin dev --port=7006",
     "debug": "egg-bin debug",
     "jianghuConfigImportData": "jianghu jianghuConfigImportData",
-    "jianghuConfigDumpData": "jianghu jianghuConfigDumpDataxxxx",
+    "jianghuConfigDumpData": "jianghu jianghuConfigDumpData",
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",
     "cov": "egg-bin cov",

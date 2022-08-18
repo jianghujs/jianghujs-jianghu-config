@@ -5,6 +5,15 @@ const path = require('path');
 module.exports = appInfo => {
 
   return {
+    jiangHuConfig: {
+      jianghuConfigDataIgnoreIdList: { 
+        _constant: [],
+        _page: [],
+        _resource: [],
+        _test_case: [],
+        _ui: [],
+      }
+    },
     static: {
       maxAge: 0,
       buffer: false,
