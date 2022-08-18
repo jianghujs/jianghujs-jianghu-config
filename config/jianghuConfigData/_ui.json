@@ -1,0 +1,82 @@
+{
+  "RECORDS": [
+    {
+      "id": 71,
+      "pageId": "studentManagement",
+      "uiActionType": "ui",
+      "uiActionId": "refreshTableData",
+      "desc": "✅获取表格数据",
+      "uiActionConfig": "{\"main\": [{\"function\": \"refreshTableData\"}]}",
+      "appDataSchema": null,
+      "operation": "insert",
+      "operationByUserId": null,
+      "operationByUser": null,
+      "operationAt": null
+    },
+    {
+      "id": 72,
+      "pageId": "studentManagement",
+      "uiActionType": "ui",
+      "uiActionId": "startCreateItem",
+      "desc": "✅获取表格数据",
+      "uiActionConfig": "{\"main\": [{\"function\": \"clearItemData\"}, {\"function\": \"openCreateItemDialog\"}]}",
+      "appDataSchema": null,
+      "operation": "insert",
+      "operationByUserId": null,
+      "operationByUser": null,
+      "operationAt": null
+    },
+    {
+      "id": 73,
+      "pageId": "studentManagement",
+      "uiActionType": "ui",
+      "uiActionId": "createItem",
+      "desc": "✅获取表格数据",
+      "uiActionConfig": "{\"before\": [{\"function\": \"confirmCreateItemDialog\"}], \"main\": [{\"function\": \"doCreateItem\"}, {\"function\": \"refreshTableData\"}], \"after\": [{\"function\": \"closeDrawerShow\"}]}",
+      "appDataSchema": null,
+      "operation": "insert",
+      "operationByUserId": null,
+      "operationByUser": null,
+      "operationAt": null
+    },
+    {
+      "id": 74,
+      "pageId": "studentManagement",
+      "uiActionType": "ui",
+      "uiActionId": "startUpdateItem",
+      "desc": "✅获取表格数据",
+      "uiActionConfig": "{\"main\": [{\"function\": \"prepareItemData\"}, {\"function\": \"openUpdateDialog\"}]}",
+      "appDataSchema": null,
+      "operation": "insert",
+      "operationByUserId": null,
+      "operationByUser": null,
+      "operationAt": null
+    },
+    {
+      "id": 75,
+      "pageId": "studentManagement",
+      "uiActionType": "ui",
+      "uiActionId": "updateItem",
+      "desc": "✅获取表格数据",
+      "uiActionConfig": "{\"before\": [{\"function\": \"confirmUpdateItemDialog\"}], \"main\": [{\"function\": \"doUpdateItem\"}, {\"function\": \"refreshTableData\"}], \"after\": [{\"function\": \"closeDrawerShow\"}]}",
+      "appDataSchema": null,
+      "operation": "insert",
+      "operationByUserId": null,
+      "operationByUser": null,
+      "operationAt": null
+    },
+    {
+      "id": 76,
+      "pageId": "studentManagement",
+      "uiActionType": "ui",
+      "uiActionId": "deleteItem",
+      "desc": "✅获取表格数据",
+      "uiActionConfig": "{\"before\": [{\"function\": \"confirmDeleteItemDialog\"}], \"main\": [{\"function\": \"doDeleteItem\"}, {\"function\": \"refreshTableData\"}]}",
+      "appDataSchema": null,
+      "operation": "insert",
+      "operationByUserId": null,
+      "operationByUser": null,
+      "operationAt": null
+    }
+  ]
+}

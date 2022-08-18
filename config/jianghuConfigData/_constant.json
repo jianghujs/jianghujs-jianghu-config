@@ -1,0 +1,15 @@
+{
+  "RECORDS": [
+    {
+      "id": 62,
+      "constantKey": "version",
+      "constantType": "object",
+      "desc": null,
+      "constantValue": "{\"testUserIdList\": \"testUserId\",\"version\": \"1.0.1\", \"title\": \"1.0.1 版本发布\", \"note\": \"新版本介绍\\n 1. 聊天输入优化\", \"apkVersion\": \"1.0.1\", \"apkLink\": \"https://xxx.xxx.xxx/xxx.apk\", \"apkNote\": \"测试客户端升级\", \"desktopVersion\": \"1.0.1\", \"desktopLink\": \"https://xxx.xxx.xxx/xxx.dmg.zip\", \"desktopNote\": \"测试桌面客户端升级\" }",
+      "operation": "insert",
+      "operationByUserId": null,
+      "operationByUser": null,
+      "operationAt": null
+    }
+  ]
+}

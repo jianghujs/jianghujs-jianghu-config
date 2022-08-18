@@ -29,6 +29,9 @@
     "stop": "egg-scripts stop --title=jianghujs-jianghu-config",
     "dev": "egg-bin dev --port=7006",
     "debug": "egg-bin debug",
+
+    "jianghuConfigImportData": "node ./lib/entry.js --command=jianghuConfigImportData",
+
     "test": "npm run lint -- --fix && npm run test-local",
     "test-local": "egg-bin test",
     "cov": "egg-bin cov",
