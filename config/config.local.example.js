@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = appInfo => {
 
   return {
-    jiangHuConfig: {
+    jianghuConfig: {
       jianghuConfigDataIgnoreIdList: { 
         _constant: [],
         _page: [],
