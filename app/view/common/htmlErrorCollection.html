@@ -78,8 +78,21 @@ function jsErrorCollection ({ runtimeError = true, rejectError = true,
  */
 jsErrorCollection({ 
     runtimeError:true, rejectError:true, consoleError:true, 
-    callback: () => {
-        console.log("[errorCollection.html]", errLog)
+    callback: (errorLog) => {
+      // TODO: 其他error 如何记录 堆栈信息
+      try {
+        window.jianghuAxios({
+          data: {
+            appData: {
+              pageId: 'allPage',
+              actionId: 'htmlErrorLogRecord',
+              actionData: { errorLog: errorLog || '' }
+            }
+          }
+        })
+      } catch (error) {
+        console.warn("[errorCollection.html] 异常日志记录异常!", error)
+      }
     } 
 })
 </script>

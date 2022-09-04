@@ -49,6 +49,15 @@ module.exports = appInfo => {
     },
     middleware,
     ...middlewareMatch,
+    customLogger: {
+      // https://www.eggjs.org/zh-CN/core/logger
+      htmlLogger: {
+        file: path.join(appInfo.baseDir, `logs/${appInfo.appId}.html.log`),
+        contextFormatter(meta) {
+          return `[${meta.date}] [${meta.level}] [${meta.ctx.method}] ${meta.message}`;
+        },
+      },
+    },
   };
 
 };
