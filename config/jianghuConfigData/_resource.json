@@ -69,6 +69,23 @@
       "operationAt": null
     },
     {
+      "id": 259,
+      "accessControlTable": null,
+      "resourceHook": null,
+      "pageId": "allPage",
+      "actionId": "htmlErrorLogRecord",
+      "desc": "✅异常日志记录",
+      "resourceType": "service",
+      "appDataSchema": "{}",
+      "resourceData": "{\"service\": \"error\", \"serviceFunction\": \"htmlErrorLogRecord\"}",
+      "requestDemo": "",
+      "responseDemo": "",
+      "operation": "insert",
+      "operationByUserId": null,
+      "operationByUser": null,
+      "operationAt": null
+    },
+    {
       "id": 380,
       "accessControlTable": null,
       "resourceHook": null,

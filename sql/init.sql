@@ -34,7 +34,7 @@ CREATE TABLE `_constant` (
   `operationByUser` varchar(255) DEFAULT NULL COMMENT '操作者用户名',
   `operationAt` varchar(255) DEFAULT NULL COMMENT '操作时间; E.g: 2021-05-28T10:24:54+08:00 ',
   PRIMARY KEY (`id`)
-) ENGINE = InnoDB AUTO_INCREMENT = 66 COMMENT = '常量表;';
+) ENGINE = InnoDB AUTO_INCREMENT = 63 COMMENT = '常量表;';
 
 
 # ------------------------------------------------------------
@@ -221,6 +221,7 @@ INSERT INTO `_resource` (`id`,`accessControlTable`,`resourceHook`,`pageId`,`acti
 INSERT INTO `_resource` (`id`,`accessControlTable`,`resourceHook`,`pageId`,`actionId`,`desc`,`resourceType`,`appDataSchema`,`resourceData`,`requestDemo`,`responseDemo`,`operation`,`operationByUserId`,`operationByUser`,`operationAt`) VALUES (251,NULL,NULL,'allPage','logout','✅登出','service','{}','{\"service\": \"user\", \"serviceFunction\": \"logout\"}','','','insert',NULL,NULL,NULL);
 INSERT INTO `_resource` (`id`,`accessControlTable`,`resourceHook`,`pageId`,`actionId`,`desc`,`resourceType`,`appDataSchema`,`resourceData`,`requestDemo`,`responseDemo`,`operation`,`operationByUserId`,`operationByUser`,`operationAt`) VALUES (253,NULL,NULL,'allPage','userInfo','✅获取用户信息','service','{}','{\"service\": \"user\", \"serviceFunction\": \"userInfo\"}','','','update',NULL,NULL,'2022-04-27T15:37:21+08:00');
 INSERT INTO `_resource` (`id`,`accessControlTable`,`resourceHook`,`pageId`,`actionId`,`desc`,`resourceType`,`appDataSchema`,`resourceData`,`requestDemo`,`responseDemo`,`operation`,`operationByUserId`,`operationByUser`,`operationAt`) VALUES (258,NULL,NULL,'allPage','getConstantList','✅查询常量','sql','{}','{\"table\": \"_constant\", \"operation\": \"select\"}','','','insert',NULL,NULL,NULL);
+INSERT INTO `_resource` (`id`,`accessControlTable`,`resourceHook`,`pageId`,`actionId`,`desc`,`resourceType`,`appDataSchema`,`resourceData`,`requestDemo`,`responseDemo`,`operation`,`operationByUserId`,`operationByUser`,`operationAt`) VALUES (259,NULL,NULL,'allPage','htmlErrorLogRecord','✅异常日志记录','service','{}','{\"service\": \"error\", \"serviceFunction\": \"htmlErrorLogRecord\"}','','','insert',NULL,NULL,NULL);
 INSERT INTO `_resource` (`id`,`accessControlTable`,`resourceHook`,`pageId`,`actionId`,`desc`,`resourceType`,`appDataSchema`,`resourceData`,`requestDemo`,`responseDemo`,`operation`,`operationByUserId`,`operationByUser`,`operationAt`) VALUES (380,NULL,NULL,'studentManagement','selectItemList','✅studentManagement查询-查询列表','sql','{}','{ \"table\": \"student\", \"operation\": \"select\" }','','','insert',NULL,NULL,NULL);
 INSERT INTO `_resource` (`id`,`accessControlTable`,`resourceHook`,`pageId`,`actionId`,`desc`,`resourceType`,`appDataSchema`,`resourceData`,`requestDemo`,`responseDemo`,`operation`,`operationByUserId`,`operationByUser`,`operationAt`) VALUES (381,NULL,NULL,'studentManagement','insertItem','✅studentManagement查询-添加成员','sql','{}','{ \"table\": \"student\", \"operation\": \"insert\" }','','','insert',NULL,NULL,NULL);
 INSERT INTO `_resource` (`id`,`accessControlTable`,`resourceHook`,`pageId`,`actionId`,`desc`,`resourceType`,`appDataSchema`,`resourceData`,`requestDemo`,`responseDemo`,`operation`,`operationByUserId`,`operationByUser`,`operationAt`) VALUES (382,NULL,NULL,'studentManagement','updateItem','✅studentManagement查询-更新成员','sql','{}','{ \"table\": \"student\", \"operation\": \"jhUpdate\" }','','','insert',NULL,NULL,NULL);
@@ -293,7 +294,7 @@ CREATE TABLE `_resource_request_log` (
   PRIMARY KEY (`id`) USING BTREE,
   KEY `resourceId_index` (`resourceId`) USING BTREE,
   KEY `packageId_index` (`packageId`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4816 COMMENT = '文件表; 软删除未启用;';
+) ENGINE = InnoDB AUTO_INCREMENT = 5167 COMMENT = '文件表; 软删除未启用;';
 
 
 
@@ -313,7 +314,7 @@ CREATE TABLE `_role` (
   `operationByUser` varchar(255) DEFAULT NULL COMMENT '操作者用户名',
   `operationAt` varchar(255) DEFAULT NULL COMMENT '操作时间; E.g: 2021-05-28T10:24:54+08:00 ',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 COMMENT = '角色表; 软删除未启用;';
+) ENGINE = InnoDB COMMENT = '角色表; 软删除未启用;';
 
 
 # ------------------------------------------------------------
@@ -476,7 +477,7 @@ CREATE TABLE `_user_group_role_page` (
   `operationByUser` varchar(255) DEFAULT NULL COMMENT '操作者用户名',
   `operationAt` varchar(255) DEFAULT NULL COMMENT '操作时间; E.g: 2021-05-28T10:24:54+08:00 ',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 31 COMMENT = '用户群组角色 - 页面 映射表; 软删除未启用;';
+) ENGINE = InnoDB AUTO_INCREMENT = 22 COMMENT = '用户群组角色 - 页面 映射表; 软删除未启用;';
 
 
 # ------------------------------------------------------------
@@ -507,7 +508,7 @@ CREATE TABLE `_user_group_role_resource` (
   `operationByUser` varchar(255) DEFAULT NULL COMMENT '操作者用户名',
   `operationAt` varchar(255) DEFAULT NULL COMMENT '操作时间; E.g: 2021-05-28T10:24:54+08:00 ',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 135 COMMENT = '用户群组角色 - 请求资源 映射表; 软删除未启用;';
+) ENGINE = InnoDB AUTO_INCREMENT = 52 COMMENT = '用户群组角色 - 请求资源 映射表; 软删除未启用;';
 
 
 # ------------------------------------------------------------
@@ -515,6 +516,7 @@ CREATE TABLE `_user_group_role_resource` (
 # ------------------------------------------------------------
 
 INSERT INTO `_user_group_role_resource` (`id`,`user`,`group`,`role`,`resource`,`allowOrDeny`,`desc`,`operation`,`operationByUserId`,`operationByUser`,`operationAt`) VALUES (1,'*','public','*','login.passwordLogin','allow','登陆resource, 开放给所有用户','insert',NULL,NULL,NULL);
+INSERT INTO `_user_group_role_resource` (`id`,`user`,`group`,`role`,`resource`,`allowOrDeny`,`desc`,`operation`,`operationByUserId`,`operationByUser`,`operationAt`) VALUES (2,'*','public','*','allPage.errorLogRecord','allow','登陆resource, 开放给所有用户','insert',NULL,NULL,NULL);
 INSERT INTO `_user_group_role_resource` (`id`,`user`,`group`,`role`,`resource`,`allowOrDeny`,`desc`,`operation`,`operationByUserId`,`operationByUser`,`operationAt`) VALUES (31,'*','login','*','allPage.*','allow','基础resource, 开放给所有登陆成功的用户','insert',NULL,NULL,NULL);
 INSERT INTO `_user_group_role_resource` (`id`,`user`,`group`,`role`,`resource`,`allowOrDeny`,`desc`,`operation`,`operationByUserId`,`operationByUser`,`operationAt`) VALUES (51,'*','login','*','*','allow','所有resource, 开放给所有登陆成功的用户','insert',NULL,NULL,NULL);
 

@@ -49,6 +49,10 @@ module.exports = appInfo => {
     },
     middleware,
     ...middlewareMatch,
+    jianghuConfig: {
+      enableHtmlErrorLogRecord: true,
+      htmlErrorLogRecordInterval: 6000,
+    },
     customLogger: {
       // https://www.eggjs.org/zh-CN/core/logger
       htmlLogger: {

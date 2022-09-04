@@ -36,7 +36,6 @@ function jsErrorCollection ({ runtimeError = true, rejectError = true,
       const unhandledCode = '403,401'
       //此处可添加不捕捉string
       const unhandledString = 'cancel'
-
       for (let string of unhandledCode.split(',').concat(unhandledCodeArr)) {
         if (errLog.includes(string)) {
           return
@@ -47,11 +46,7 @@ function jsErrorCollection ({ runtimeError = true, rejectError = true,
           return
         }
       }
-      //延时返回
-      let time = setTimeout(() => {
-        clearInterval(time)
-        callback(errLog)
-      }, 200)
+      callback(errLog)
     })
   }
   if (consoleError) {
@@ -84,12 +79,35 @@ function pushErrorLogToLocalStorage (errorLog) {
   localStorage.setItem(`${window.appInfo.appId}_errorLogList`, JSON.stringify(errorLogList));
 }
 
+function intervalSyncErrorLogListToServer({ intervalTimeout }) {
+  setInterval(() => {
+    let errorLogList = [];
+    try {
+      errorLogList = JSON.parse(localStorage.getItem(`${window.appInfo.appId}_errorLogList`) || '[]');
+    } catch (error) {
+      console.log("JSON.parse error", error);
+    }
+    if (errorLogList.length > 0) {
+      localStorage.setItem(`${window.appInfo.appId}_errorLogList`, '[]');
+      window.jianghuAxios({
+        data: {
+          appData: {
+            pageId: 'allPage',
+            actionId: 'htmlErrorLogRecord',
+            actionData: { errorLogList }
+          }
+        }
+      })
+    }
+  }, intervalTimeout);
+}
 /**
  * 注意: 为了避免死循环
  * - callback 里不能写 console.error 
  * - callback 内最好用 try catch 包一下
  */
-jsErrorCollection({ 
+if ('true' === '<$ ctx.app.config.jianghuConfig.enableHtmlErrorLogRecord $>') {
+  jsErrorCollection({ 
     runtimeError:true, rejectError:true, consoleError:true, 
     callback: (errorMessage) => {
       try {
@@ -102,26 +120,11 @@ jsErrorCollection({
         console.log("[errorCollection.html] 异常日志记录异常!", error)
       }
     } 
-})
+  })
+  const intervalTimeout = '<$ ctx.app.config.jianghuConfig.htmlErrorLogRecordInterval $>' || 60000;
+  intervalSyncErrorLogListToServer({ intervalTimeout });
+}
 
-setInterval(() => {
-  let errorLogList = [];
-  try {
-    errorLogList = JSON.parse(localStorage.getItem(`${window.appInfo.appId}_errorLogList`) || '[]');
-  } catch (error) {
-    console.log("JSON.parse error", error);
-  }
-  if (errorLogList.length > 0) {
-    localStorage.setItem(`${window.appInfo.appId}_errorLogList`, '[]');
-    window.jianghuAxios({
-      data: {
-        appData: {
-          pageId: 'allPage',
-          actionId: 'htmlErrorLogRecord',
-          actionData: { errorLogList }
-        }
-      }
-    })
-  }
-}, 6000);
+
+
 </script>
