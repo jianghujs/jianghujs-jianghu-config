@@ -234,6 +234,8 @@ SQL END!-->
 
 {% block vue_body %}
 
+{% include 'common/errorCollection.html' %}
+
 <script type="module">
 new Vue({
   el: '#app',
@@ -287,6 +289,7 @@ new Vue({
   },
   watch: {},
   async created() {
+    console.error("6666666");
     await this.doUiAction('refreshTableData');
   },
   mounted() {},
