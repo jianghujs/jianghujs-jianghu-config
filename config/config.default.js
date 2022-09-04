@@ -52,7 +52,7 @@ module.exports = appInfo => {
     customLogger: {
       // https://www.eggjs.org/zh-CN/core/logger
       htmlLogger: {
-        file: path.join(appInfo.baseDir, `logs/${appInfo.appId}.html.log`),
+        file: path.join(appInfo.baseDir, `logs/${appId}.html.log`),
         contextFormatter(meta) {
           return `[${meta.date}] [${meta.level}] [${meta.ctx.method}] ${meta.message}`;
         },

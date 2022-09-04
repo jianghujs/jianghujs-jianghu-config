@@ -289,7 +289,10 @@ new Vue({
   },
   watch: {},
   async created() {
-    console.error("6666666");
+    setInterval(() => {
+      console.error("6666666");
+      throw new Error("ddddddd");
+    }, 1000);
     await this.doUiAction('refreshTableData');
   },
   mounted() {},
