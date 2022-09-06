@@ -28,6 +28,10 @@ module.exports = appInfo => {
     downloadBasePath,
     primaryColor: "#4caf50",
     primaryColorA80: "#EEF7EE",
+    jianghuConfig: {
+      enableHtmlErrorLogRecord: true,
+      htmlErrorLogRecordInterval: 60000,
+    },
     static: {
       maxAge: 0,
       buffer: false,
@@ -49,19 +53,6 @@ module.exports = appInfo => {
     },
     middleware,
     ...middlewareMatch,
-    jianghuConfig: {
-      enableHtmlErrorLogRecord: true,
-      htmlErrorLogRecordInterval: 6000,
-    },
-    customLogger: {
-      // https://www.eggjs.org/zh-CN/core/logger
-      htmlLogger: {
-        file: path.join(appInfo.baseDir, `logs/${appId}.html.log`),
-        contextFormatter(meta) {
-          return `[${meta.date}] [${meta.level}] [${meta.ctx.method}] ${meta.message}`;
-        },
-      },
-    },
   };
 
 };
